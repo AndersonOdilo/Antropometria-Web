@@ -7,11 +7,8 @@ package com.antropometria.controller;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.jasperreports.Report;
-import br.com.caelum.vraptor.observer.download.Download;
 import com.antropometria.dao.AvaliacaoJpaController;
 import com.antropometria.dao.PacienteJpaController;
 import com.antropometria.dao.ProfessorJpaController;
@@ -76,12 +73,6 @@ public class AvaliacaoController {
             Logger.getLogger(AvaliacaoController.class.getName()).log(Level.SEVERE, null, ex);
         }
         result.redirectTo(PacienteController.class).pacientes();
-    }
-
-    @Path("/clients/pdf")
-    public Download pdfReport() {
-        Report report = generateReport();
-        return new ReportDownload(report, (ExportFormat) pdfReport());
     }
 
 }

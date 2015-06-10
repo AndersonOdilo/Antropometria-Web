@@ -1,6 +1,7 @@
 /home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/dao/BioimpedanciaJpaController.java
 /home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/models/PregasCutaneas.java
 /home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/controller/ProfessorController.java
+/home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/controller/PlanoController.java
 /home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/dao/AvaliacaoJpaController.java
 /home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/models/Osseo.java
 /home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/controller/AvaliacaoController.java
@@ -8,8 +9,8 @@
 /home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/dao/PregasCutaneasJpaController.java
 /home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/models/Circunferencia.java
 /home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/dao/CircunferenciaJpaController.java
-/home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/dao/exceptions/PreexistingEntityException.java
 /home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/models/Bioimpedancia.java
+/home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/dao/exceptions/PreexistingEntityException.java
 /home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/models/Paciente.java
 /home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/dao/OsseoJpaController.java
 /home/anderson/NetBeansProjects/Antropometria/src/main/java/com/antropometria/dao/PacienteJpaController.java

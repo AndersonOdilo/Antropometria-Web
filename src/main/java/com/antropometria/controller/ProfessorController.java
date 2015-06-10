@@ -45,7 +45,7 @@ public class ProfessorController {
 
     public void salvar(Professor professor) {
         try {
-            if (professor.getId() > 0) {
+            if (professor.getId() != null) {
                 dao.edit(professor);
             } else {
                 dao.create(professor);
@@ -54,7 +54,7 @@ public class ProfessorController {
         } catch (Exception ex) {
             Logger.getLogger(ProfessorController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        result.redirectTo(this).formulario();
+        result.redirectTo(this).professores();
     }
 
     @Get("/professores")

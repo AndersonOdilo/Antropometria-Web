@@ -45,8 +45,8 @@
                     </div>
                     <h2 class="text-primary" style="margin-top: 0px"><strong>${a.paciente.nome}</strong></h2>
                     <h4>${a.professor.nome}</h4>
-                    <p><i>Data: </i> ${a.data}</p>
-                    <p><i>Altura:</i> ${a.altura} | <i>Peso:</i> ${a.peso} | <i>IMC:</i> 20,09 | <i>Retorno:</i> ${a.data}</p>
+                    <p><i>Data: </i> ${a.getDiaMes()}</p>
+                    <p><i>Altura:</i> ${a.altura} | <i>Peso:</i> ${a.getDiaMes()} | <i>IMC:</i> 20,09 | <i>Retorno:</i> ${a.getDataRetornoFormatada()}</p>
                     <p><i>Descrição:</i> ${a.descricao}</p>
 
                     <hr>

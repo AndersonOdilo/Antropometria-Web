@@ -7,6 +7,8 @@
         <title>Atropometria Avaliação</title>
         <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
         <script src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>" type="text/javascript"></script>
+        <script src="<c:url value="/resources/js/jquery.mask.min.js"/>" type="text/javascript"></script>
+        <script src="<c:url value="/resources/js/antropometria.js"/>" type="text/javascript"></script>
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -50,15 +52,15 @@
                                 <div class="form-group">
                                     <div class="col-sm-2">
                                         <label>Data*</label>
-                                        <input type="date" name="avaliacao.data" value="${avaliacao.data}" class="form-control"/>
+                                        <input type="text" name="avaliacao.data" value="${avaliacao.data}" class="form-control data" required="true"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Data do retorno*</label>
-                                        <input type="date" name="avaliacao.dataRetorno" value="${avaliacao.dataRetorno}" class="form-control"/>
+                                        <input type="text" name="avaliacao.dataRetorno" value="${avaliacao.dataRetorno}" class="form-control data" required="true"/>
                                     </div>
                                     <div class="col-sm-4">
                                         <label>Professor*</label>
-                                        <select name="avaliacao.professor.id" class="form-control">
+                                        <select name="avaliacao.professor.id" class="form-control" required="true">
                                             <c:forEach items="${professores}" var="professor">    
                                                 <option value="${professor.id}">${professor.nome}</option>    
                                             </c:forEach>   
@@ -66,7 +68,7 @@
                                     </div>
                                     <div class="col-sm-4">
                                         <label>Paciente*</label>  
-                                        <select name="avaliacao.paciente.id" class="form-control">
+                                        <select name="avaliacao.paciente.id" class="form-control" required="true">
                                             <c:forEach items="${pacientes}" var="paciente">    
                                                 <option value="${paciente.id}">${paciente.nome}</option>    
                                             </c:forEach>   
@@ -76,15 +78,15 @@
                                 <div class="form-group">
                                     <div class="col-sm-8">
                                         <label>Descrição*</label>
-                                        <input type="text" name="avaliacao.descricao" value="${avaliacao.descricao}" class="form-control"/>
+                                        <input type="text" name="avaliacao.descricao" value="${avaliacao.descricao}" class="form-control" required="true"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Altura*</label>
-                                        <input type="text" name="avaliacao.altura" value="${avaliacao.altura}" class="form-control"/>
+                                        <input type="text" name="avaliacao.altura" value="${avaliacao.altura}" class="form-control" required="true"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Peso*</label>
-                                        <input type="text" name="avaliacao.peso" value="${avaliacao.peso}" class="form-control"/>
+                                        <input type="text" name="avaliacao.peso" value="${avaliacao.peso}" class="form-control peso" required="true"/>
                                     </div>
                                 </div>
                                 <hr>
@@ -95,79 +97,79 @@
                                 <div class="form-group">
                                     <div class="col-sm-2">
                                         <label>Ombro</label>
-                                        <input type="text" name="avaliacao.circunferencia.ombro" value="${avaliacao.circunferencia.ombro}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.ombro" value="${avaliacao.circunferencia.ombro}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Peitoral</label>
-                                        <input type="text" name="avaliacao.circunferencia.peitoral" value="${avaliacao.circunferencia.peitoral}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.peitoral" value="${avaliacao.circunferencia.peitoral}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Cintura</label>
-                                        <input type="text" name="avaliacao.circunferencia.cintura" value="${avaliacao.circunferencia.cintura}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.cintura" value="${avaliacao.circunferencia.cintura}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Abdomen</label>
-                                        <input type="text" name="avaliacao.circunferencia.abdomen" value="${avaliacao.circunferencia.abdomen}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.abdomen" value="${avaliacao.circunferencia.abdomen}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Quadril</label>
-                                        <input type="text" name="avaliacao.circunferencia.quadril" value="${avaliacao.circunferencia.quadril}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.quadril" value="${avaliacao.circunferencia.quadril}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Pescoço</label>
-                                        <input type="text" name="avaliacao.circunferencia.pescoco" value="${avaliacao.circunferencia.pescoco}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.pescoco" value="${avaliacao.circunferencia.pescoco}" class="form-control medida"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-2">
                                         <label>Panturrilha (E)</label>
-                                        <input type="text" name="avaliacao.circunferencia.panturrilhaE" value="${avaliacao.circunferencia.panturrilhaE}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.panturrilhaE" value="${avaliacao.circunferencia.panturrilhaE}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Panturrilha (D)</label>
-                                        <input type="text" name="avaliacao.circunferencia.panturrilhaD" value="${avaliacao.circunferencia.panturrilhaD}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.panturrilhaD" value="${avaliacao.circunferencia.panturrilhaD}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Coxa (E)</label>
-                                        <input type="text" name="avaliacao.circunferencia.coxaE" value="${avaliacao.circunferencia.coxaE}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.coxaE" value="${avaliacao.circunferencia.coxaE}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Coxa (D)</label>
-                                        <input type="text" name="avaliacao.circunferencia.coxaD" value="${avaliacao.circunferencia.coxaD}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.coxaD" value="${avaliacao.circunferencia.coxaD}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Coxa proximal (E)</label>
-                                        <input type="text" name="avaliacao.circunferencia.coxaProximalE" value="${avaliacao.circunferencia.coxaProximalE}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.coxaProximalE" value="${avaliacao.circunferencia.coxaProximalE}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Coxa proximal (D)</label>
-                                        <input type="text" name="avaliacao.circunferencia.coxaProximalD" value="${avaliacao.circunferencia.coxaProximalD}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.coxaProximalD" value="${avaliacao.circunferencia.coxaProximalD}" class="form-control medida"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-2">
                                         <label>Braço relaxado (E)</label>
-                                        <input type="text" name="avaliacao.circunferencia.bracoRelaxadoE" value="${avaliacao.circunferencia.bracoRelaxadoE}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.bracoRelaxadoE" value="${avaliacao.circunferencia.bracoRelaxadoE}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Braço relaxado (D)</label>
-                                        <input type="text" name="avaliacao.circunferencia.bracoRelaxadoD" value="${avaliacao.circunferencia.bracoRelaxadoD}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.bracoRelaxadoD" value="${avaliacao.circunferencia.bracoRelaxadoD}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Braço contraido (E)</label>
-                                        <input type="text" name="avaliacao.circunferencia.bracoContraidoE" value="${avaliacao.circunferencia.bracoContraidoE}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.bracoContraidoE" value="${avaliacao.circunferencia.bracoContraidoE}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Braço contraido (D)</label>
-                                        <input type="text" name="avaliacao.circunferencia.bracoContraidoD" value="${avaliacao.circunferencia.bracoContraidoD}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.bracoContraidoD" value="${avaliacao.circunferencia.bracoContraidoD}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Antebraço</label>
-                                        <input type="text" name="avaliacao.circunferencia.antebraco" value="${avaliacao.circunferencia.antebraco}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.antebraco" value="${avaliacao.circunferencia.antebraco}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Punho</label>
-                                        <input type="text" name="avaliacao.circunferencia.punho" value="${avaliacao.circunferencia.punho}" class="form-control"/>
+                                        <input type="text" name="avaliacao.circunferencia.punho" value="${avaliacao.circunferencia.punho}" class="form-control medida"/>
                                     </div>
                                 </div>
 
@@ -179,11 +181,11 @@
                                 <div class="form-group">
                                     <div class="col-sm-2">
                                         <label>Punho</label>
-                                        <input type="text" name="avaliacao.osseo.punho" value="${avaliacao.osseo.punho}" class="form-control"/>
+                                        <input type="text" name="avaliacao.osseo.punho" value="${avaliacao.osseo.punho}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Femur</label>
-                                        <input type="text" name="avaliacao.osseo.femur" value="${avaliacao.osseo.femur}" class="form-control"/>
+                                        <input type="text" name="avaliacao.osseo.femur" value="${avaliacao.osseo.femur}" class="form-control medida"/>
                                     </div>
                                 </div>
 
@@ -195,37 +197,37 @@
                                 <div class="form-group">
                                     <div class="col-sm-2">
                                         <label>Bíceps</label>
-                                        <input type="text" name="avaliacao.pregas.biceps" value="${avaliacao.pregas.biceps}" class="form-control"/>
+                                        <input type="text" name="avaliacao.pregas.biceps" value="${avaliacao.pregas.biceps}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Tríceps</label>
-                                        <input type="text" name="avaliacao.pregas.triceps" value="${avaliacao.pregas.triceps}" class="form-control"/>
+                                        <input type="text" name="avaliacao.pregas.triceps" value="${avaliacao.pregas.triceps}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Axilar média</label>
-                                        <input type="text" name="avaliacao.pregas.axilarMedia" value="${avaliacao.pregas.axilarMedia}" class="form-control"/>
+                                        <input type="text" name="avaliacao.pregas.axilarMedia" value="${avaliacao.pregas.axilarMedia}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Torax</label>
-                                        <input type="text" name="avaliacao.pregas.torax" value="${avaliacao.pregas.torax}" class="form-control"/>
+                                        <input type="text" name="avaliacao.pregas.torax" value="${avaliacao.pregas.torax}" class="form-control medida"/>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="col-sm-2">
                                         <label>Abdominal</label>
-                                        <input type="text" name="avaliacao.pregas.abdominal" value="${avaliacao.pregas.abdominal}" class="form-control"/>
+                                        <input type="text" name="avaliacao.pregas.abdominal" value="${avaliacao.pregas.abdominal}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Suprailíaca</label>
-                                        <input type="text" name="avaliacao.pregas.suprailiaca" value="${avaliacao.pregas.suprailiaca}" class="form-control"/>
+                                        <input type="text" name="avaliacao.pregas.suprailiaca" value="${avaliacao.pregas.suprailiaca}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Subescapular</label>
-                                        <input type="text" name="avaliacao.pregas.subescapular" value="${avaliacao.pregas.subescapular}" class="form-control"/>
+                                        <input type="text" name="avaliacao.pregas.subescapular" value="${avaliacao.pregas.subescapular}" class="form-control medida"/>
                                     </div>
                                     <div class="col-sm-2">
                                         <label>Coxa</label>
-                                        <input type="text" name="avaliacao.pregas.coxa" value="${avaliacao.pregas.coxa}" class="form-control"/>
+                                        <input type="text" name="avaliacao.pregas.coxa" value="${avaliacao.pregas.coxa}" class="form-control medida"/>
                                     </div>
                                 </div>
 

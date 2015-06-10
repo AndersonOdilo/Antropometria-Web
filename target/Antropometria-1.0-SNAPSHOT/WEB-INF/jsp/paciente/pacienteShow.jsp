@@ -50,10 +50,10 @@
                 <div class="panel-body">  
                     <div class="btn-group pull-right">
                         <a href="${linkTo[AvaliacaoController].novo()}" type="button" class="btn btn-primary">+ Nova Avaliação</a>
-                        <a type="button" class="btn btn-default">Gerar Relatório</a>
+                        <a href="javascript:print();" type="button" class="btn btn-default">Gerar Relatório</a>
                     </div>
                     <p><strong>Sexo: </strong> ${paciente.sexo}</p>
-                    <p><strong>Nascimento: </strong>${paciente.dataNascimento}</p>
+                    <p><strong>Nascimento: </strong>${paciente.getDataFormatada()}</p>
                     <p><strong>Email: </strong> ${paciente.email}</p>
                     <p><strong>Telefone: </strong> ${paciente.telefone}</p>
                     <p><strong>Cidade: </strong> ${paciente.cidade}</p>
@@ -70,16 +70,16 @@
                             <c:forEach items="${paciente.avaliacoes}" var="a"> 
 
                                 <li class="time-label">
-                                    <span class="bg-light-blue"> ${a.data}
+                                    <span class="bg-light-blue"> ${a.getMesAno()}
                                     </span>
                                 </li>
                                 <li>
                                     <i class="fa fa-user-md bg-blue"></i>
                                     <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-clock-o"></i><b> Data: ${a.data}</b></span>
+                                        <span class="time"><i class="fa fa-clock-o"></i><b> Data: ${a.getDiaMes()}</b></span>
                                         <h3 class="timeline-header"><a href="#">${a.professor.nome}</a> realizou esta avaliação física.</h3>
                                         <div class="timeline-body">
-                                            <p><i>Altura:</i> ${a.altura} | <i>Peso:</i> ${a.peso} | <i>IMC:</i> 20,09 | <i>Retorno:</i> ${a.data}</p>
+                                            <p><i>Altura:</i> ${a.altura} | <i>Peso:</i> ${a.peso} | <i>IMC:</i> 20,09 | <i>Retorno:</i> ${a.getDataRetornoFormatada()}</p>
                                             <p>Descrição: ${a.descricao}</p>
                                             <div class='pull-right'>
                                                 <a href="${linkTo[AvaliacaoController].avaliacaoShow}${a.id}" class="btn btn-default btn-sm"><i class="fa fa-file-text-o"></i> Abrir avaliação</a>

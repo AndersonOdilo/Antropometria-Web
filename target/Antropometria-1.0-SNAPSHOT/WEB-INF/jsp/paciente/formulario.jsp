@@ -7,6 +7,8 @@
         <title>Antropometria Paciente</title>       
         <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
         <script src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>" type="text/javascript"></script>
+        <script src="<c:url value="/resources/js/jquery.mask.min.js"/>" type="text/javascript"></script>
+        <script src="<c:url value="/resources/js/antropometria.js"/>" type="text/javascript"></script>
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -44,15 +46,15 @@
                             <div class="form-group">
                                  <div class="col-sm-4">
                                  <label>Nome*</label>
-                                <input type="text" name="paciente.nome" value="${paciente.nome}" class="form-control">
+                                 <input type="text" name="paciente.nome" value="${paciente.nome}" class="form-control" required="true">
                             </div>
                             <div class="col-sm-3">
                                 <label>Nascimento*</label>
-                                <input type="date" name="paciente.dataNascimento" value="${paciente.dataNascimento}" class="form-control">
+                                <input type="text" name="paciente.dataNascimento" value="${paciente.getDataFormatada()}" class="form-control data" required="true">
                             </div>
                             <div class="col-sm-3">
                                 <label>Sexo*</label>
-                                <select name="paciente.sexo"  class="form-control">
+                                <select name="paciente.sexo"  class="form-control" required="true">
                                     <option value="Masculino" ${paciente.sexo eq 'Masculino'? 'selected' : ''} >Masculino</option>
                                     <option value="Feminino" ${paciente.sexo eq 'Feminino'? 'selected' : ''}>Feminino</option>
                                 </select>
@@ -65,7 +67,7 @@
                                 </div>
                                 <div class="col-sm-3">
                                     <label>Telefone*</label>
-                                    <input type="text" name="paciente.telefone" value="${paciente.telefone}" class="form-control">
+                                    <input type="text" name="paciente.telefone" value="${paciente.telefone}" class="form-control fone" required="true">
                                 </div>
                                 <div class="col-sm-3">
                                     <label>Cidade:</label>

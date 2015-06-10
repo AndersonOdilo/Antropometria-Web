@@ -18,14 +18,17 @@ import javax.persistence.TemporalType;
 public class Avaliacao implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    
+
     @Id
     @GeneratedValue
     private Long id;
-    
+
     @Temporal(TemporalType.DATE)
     private Date data;
-    
+
+    @Temporal(TemporalType.DATE)
+    private Date dataRetorno;
+
     private double altura;
     private double peso;
     private String descricao;
@@ -84,6 +87,14 @@ public class Avaliacao implements Serializable {
         this.descricao = descricao;
     }
 
+    public Date getDataRetorno() {
+        return dataRetorno;
+    }
+
+    public void setDataRetorno(Date dataRetorno) {
+        this.dataRetorno = dataRetorno;
+    }
+
     public Paciente getPaciente() {
         return paciente;
     }
@@ -131,15 +142,6 @@ public class Avaliacao implements Serializable {
     public void setBioimpedancia(Bioimpedancia bioimpedancia) {
         this.bioimpedancia = bioimpedancia;
     }
-    
-    
-
-//    @Override
-//    public String toString() {
-//        return "id:" + id + "data: " + data + "altura: " + altura + "peso: " + peso + "descricao: " + descricao + "paciente.id: " + paciente.id
-//                + "professor.id: " + professor.id + "circunferencia.id: " + circunferencia.id + "osseo.id: " + osseo.id + "pregas.id: " + pregas.id
-//                + "bioimpedancia.id: " + bioimpedancia.id;
-//    }
 
     public String getMesAno() {
         if (data != null) {
@@ -151,6 +153,13 @@ public class Avaliacao implements Serializable {
     public String getDiaMes() {
         if (data != null) {
             return new SimpleDateFormat("dd 'de' MMMMM").format(data);
+        }
+        return "";
+    }
+
+    public String getDataRetornoFormatada() {
+        if (dataRetorno != null) {
+            return new SimpleDateFormat("dd - MMMMM - YYYY").format(dataRetorno);
         }
         return "";
     }

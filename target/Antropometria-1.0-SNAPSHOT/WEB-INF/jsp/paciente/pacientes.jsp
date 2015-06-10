@@ -50,7 +50,7 @@
                     <c:forEach items="${pacienteList}" var="p"> 
                         <tr>
                             <td>${p.nome}</td>
-                            <td>${p.dataNascimento}</td>
+                            <td>${p.getDataFormatada()}</td>
                             <td>${p.sexo}</td>
                             <td>${p.telefone}</td>
                             <td class="text-center">${p.avaliacoes.size()}</td>

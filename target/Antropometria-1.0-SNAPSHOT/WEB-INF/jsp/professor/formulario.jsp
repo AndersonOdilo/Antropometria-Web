@@ -7,6 +7,8 @@
         <title>Antropometria Professor</title>
         <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
         <script src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>" type="text/javascript"></script>
+        <script src="<c:url value="/resources/js/jquery.mask.min.js"/>" type="text/javascript"></script>
+        <script src="<c:url value="/resources/js/antropometria.js"/>" type="text/javascript"></script>
     </head>
     <body>
         <nav class="navbar navbar-default">
@@ -43,15 +45,15 @@
                         <div class="form-group">
                             <div class="col-sm-4">
                                 <label>Nome*</label>
-                                <input type="text" name="professor.nome" value="${professor.nome}" class="form-control">
+                                <input type="text" name="professor.nome" value="${professor.nome}" class="form-control" required="true">
                             </div>
                             <div class="col-sm-3">
                                 <label>Nascimento*</label>
-                                <input type="date" name="professor.dataNascimento" value="${professor.dataNascimento}" class="form-control">
+                                <input type="text" name="professor.dataNascimento" value="${professor.getDataFormatada()}" class="form-control data" required="true">
                             </div>
                             <div class="col-sm-3">
                                 <label>Sexo*</label>
-                                <select name="professor.sexo" class="form-control">
+                                <select name="professor.sexo" class="form-control" required="true">
                                     <option value="Masculino" ${professor.sexo eq 'Masculino'? 'selected' : ''}>Masculino</option>
                                     <option value="Feminino" ${professor.sexo eq 'Feminino'? 'selected' : ''}>Feminino</option>
                                 </select>
@@ -64,7 +66,7 @@
                             </div>
                             <div class="col-sm-3">
                                 <label>Telefone*</label>
-                                <input type="text" name="professor.telefone" value="${professor.telefone}" class="form-control">
+                                <input type="text" name="professor.telefone" value="${professor.telefone}" class="form-control fone" required="true">
                             </div>
                         </div>
                         <a href="${linkTo[ProfessorController].professores()}" type="button" class="btn btn-default">Cancelar</a>

@@ -10,13 +10,24 @@ import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.observer.download.Download;
+import br.com.caelum.vraptor.observer.download.FileDownload;
 import com.antropometria.dao.PacienteJpaController;
 import com.antropometria.dao.exceptions.RollbackFailureException;
 import com.antropometria.models.Paciente;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperExportManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 /**
  *
@@ -47,7 +58,7 @@ public class PacienteController {
     @Post
     public void salvar(Paciente paciente) {
         try {
-            if (paciente.getId() > 0) {
+            if (paciente.getId() != null) {
                 dao.edit(paciente);
             } else {
                 dao.create(paciente);
@@ -78,5 +89,16 @@ public class PacienteController {
             Logger.getLogger(PacienteController.class.getName()).log(Level.SEVERE, null, ex);
         }
         result.redirectTo(this).pacientes();
+    }
+
+    public Download relatorio() throws JRException, FileNotFoundException {
+
+        JasperReport report = JasperCompileManager.compileReport("/home/anderson/NetBeansProjects/Antropometria/listaPacientes.jrxml");
+        JasperPrint print = JasperFillManager.fillReport(report, null, new JRBeanCollectionDataSource(dao.findPacienteEntities()));
+        JasperExportManager.exportReportToPdfFile(print, "/home/anderson/NetBeansProjects/Antropometria/listaPacientes.pdf");
+
+        File file = new File("/home/anderson/NetBeansProjects/Antropometria/listaPacientes.pdf");
+        
+        return new FileDownload(file, "pdf", "teste");
     }
 }

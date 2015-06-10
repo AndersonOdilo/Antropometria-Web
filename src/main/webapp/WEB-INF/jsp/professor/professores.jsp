@@ -51,14 +51,14 @@
                     <c:forEach items="${professorList}" var="p">
                         <tr>
                             <td>${p.nome}</td>
-                            <td>${p.dataNascimento}</td>
+                            <td>${p.getDataFormatada()}</td>
                             <td>${p.sexo}</td>
                             <td>${p.telefone}</td>
                             <td>
                                 <div class="btn-group pull-right">
                                     <a professor_id="${p.id}" id="abrir_modal" class="btn btn-default btn-sm"><i class="fa fa-file-text-o"></i> Abrir</a>
                                     <a href="professor/editar/${p.id}" class="btn btn-default btn-sm"><i class="fa fa-edit"></i> Editar</a>
-                                    <a class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> Apagar</a>
+                                    <a href="professor/excluir/${p.id}" class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i> Apagar</a>
                                 </div>
                             </td>
                         </tr>

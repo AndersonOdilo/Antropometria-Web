@@ -21,12 +21,9 @@ public class Professor implements Serializable {
     @Id
     @GeneratedValue
     private Long id;
-
     private String nome;
-    
     @Temporal(TemporalType.DATE)
     private Date dataNascimento;
-    
     private String sexo;
     private String telefone;
     private String email;
