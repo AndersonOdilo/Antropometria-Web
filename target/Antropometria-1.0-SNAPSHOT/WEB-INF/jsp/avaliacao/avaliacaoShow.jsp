@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Antropometria</title> 
         <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+        <link href="<c:url value="/resources/css/relatorio.css"/>" rel="stylesheet" media="print"/>
         <script src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>" type="text/javascript"></script>
     </head>
     <body>
@@ -28,8 +29,7 @@
                         <li id="professores"><a href="${linkTo[ProfessorController].professores()}">Professores</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li id="planos"><a href="/planos">Planos</a></li>
-                        <li><a href="/nova-impressao">Configurações</a></li>
+                        <li id="planos"><a href="${linkTo[PlanoController].plano()}">Planos</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -40,8 +40,7 @@
                 </div>
                 <div class="panel-body">
                     <div class="pull-right btn-group">
-                        <a class="btn btn-default btn-lg"><i class="fa fa-envelope-o"></i> Enviar por email</a>
-                        <a class="btn btn-default btn-lg"><i class="fa fa-print"></i> Imprimir</a>
+                        <a href="javascript:print()" class="btn btn-default btn-lg"><i class="fa fa-print"></i> Imprimir</a>
                     </div>
                     <h2 class="text-primary" style="margin-top: 0px"><strong>${a.paciente.nome}</strong></h2>
                     <h4>${a.professor.nome}</h4>
@@ -153,7 +152,7 @@
                             </tbody>
                         </table>
 
-
+                        <div id="quebra-linha"></div>
                         <hr>
                         <h4>Resultado (Bioimpedância):</h4>
                         <div class="table-responsive">

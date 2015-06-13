@@ -30,8 +30,7 @@
                         <li id="professores"><a href="${linkTo[ProfessorController].professores()}">Professores</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li id="planos"><a href="/planos">Planos</a></li>
-                        <li><a href="/nova-impressao">Configurações</a></li>
+                        <li id="planos"><a href="${linkTo[PlanoController].plano()}">Planos</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

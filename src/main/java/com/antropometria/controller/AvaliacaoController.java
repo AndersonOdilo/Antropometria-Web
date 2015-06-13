@@ -14,6 +14,7 @@ import com.antropometria.dao.PacienteJpaController;
 import com.antropometria.dao.ProfessorJpaController;
 import com.antropometria.dao.exceptions.RollbackFailureException;
 import com.antropometria.models.Avaliacao;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.inject.Inject;
@@ -54,8 +55,8 @@ public class AvaliacaoController {
     }
 
     @Get("/")
-    public void avaliacoes() {
-
+    public List<Avaliacao> avaliacoes() {
+        return dao.findAvaliacaoEntities(10, 0);
     }
 
     @Get("/avaliacao/{avaliacao.id}")

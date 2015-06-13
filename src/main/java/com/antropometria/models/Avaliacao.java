@@ -156,6 +156,13 @@ public class Avaliacao implements Serializable {
         }
         return "";
     }
+    
+    public String getDataFormatada() {
+        if (data != null) {
+            return new SimpleDateFormat("dd - MMMMM - YYYY").format(data);
+        }
+        return "";
+    }
 
     public String getDataRetornoFormatada() {
         if (dataRetorno != null) {

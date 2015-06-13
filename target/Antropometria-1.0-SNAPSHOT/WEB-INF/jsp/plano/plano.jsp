@@ -30,7 +30,6 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li id="planos"><a href="${linkTo[PlanoController].plano()}">Planos</a></li>
-                        <li><a href="/nova-impressao">Configurações</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

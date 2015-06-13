@@ -31,7 +31,6 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li id="planos"><a href="${linkTo[PlanoController].plano()}">Planos</a></li>
-                        <li><a href="/nova-impressao">Configurações</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -48,10 +47,7 @@
                     <h3 class="panel-title">${paciente.nome}</h3>
                 </div>
                 <div class="panel-body">  
-                    <div class="btn-group pull-right">
-                        <a href="${linkTo[AvaliacaoController].novo()}" type="button" class="btn btn-primary">+ Nova Avaliação</a>
-                        <a href="javascript:print();" type="button" class="btn btn-default">Gerar Relatório</a>
-                    </div>
+                    
                     <p><strong>Sexo: </strong> ${paciente.sexo}</p>
                     <p><strong>Nascimento: </strong>${paciente.getDataFormatada()}</p>
                     <p><strong>Email: </strong> ${paciente.email}</p>

@@ -6,6 +6,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Antropometria Pacientes</title>
         <link href="<c:url value="/resources/css/bootstrap.min.css"/>" rel="stylesheet">
+        <link href="<c:url value="/resources/css/relatorio.css"/>" rel="stylesheet" media="print"/>
         <script src="<c:url value="/resources/js/jquery-2.1.4.min.js"/>" type="text/javascript"></script>
     </head>
     <body>
@@ -28,8 +29,7 @@
                         <li id="professores"><a href="${linkTo[ProfessorController].professores()}">Professores</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li id="planos"><a href="/planos">Planos</a></li>
-                        <li><a href="/nova-impressao">Configurações</a></li>
+                        <li id="planos"><a href="${linkTo[PlanoController].plano()}">Planos</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
@@ -66,7 +66,10 @@
                 </tbody>
             </table>
 
-            <div><a class="btn btn-primary pull-right" href="${linkTo[PacienteController].novo()}">+ Novo paciente</a></div>
+            <div class="btn-group pull-right">                
+                <a class="btn btn-primary" href="${linkTo[PacienteController].novo()}">+ Novo paciente</a>
+                <a href="javascript:print()" class="btn btn-default"><i class="fa fa-print"></i> Gerar relatório</a>
+            </div>
 
             <script>
                 $(".nav").find(".active").removeClass("active");

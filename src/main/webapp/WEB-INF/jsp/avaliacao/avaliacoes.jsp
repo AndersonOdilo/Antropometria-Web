@@ -28,15 +28,38 @@
                         <li id="professores"><a href="${linkTo[ProfessorController].professores()}">Professores</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li id="planos"><a href="/planos">Planos</a></li>
-                        <li><a href="/nova-impressao">Configurações</a></li>
+                        <li id="planos"><a href="${linkTo[PlanoController].plano()}">Planos</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
         <div class="container">
-            <a class="btn btn-primary pull-right" href="${linkTo[AvaliacaoController].novo()}">+ Nova avaliação</a>
 
+            <h3>10 ultimas Avaliações</h3>
+            <table id="example" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Paciente</th>
+                        <th>Professor</th>
+                        <th>Data efetuada</th>
+                        <th>Data retorno</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${avaliacaoList}" var="a"> 
+                        <tr>
+                            <td>${a.paciente.nome}</td>
+                            <td>${a.professor.nome}</td>
+                            <td>${a.getDataFormatada()}</td>
+                            <td>${a.getDataRetornoFormatada()}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+            <div>
+                <a class="btn btn-primary pull-right" href="${linkTo[AvaliacaoController].novo()}">+ Nova avaliação</a>
+
+            </div>
             <script>
                 $(".nav").find(".active").removeClass("active");
                 $("#avaliacoes").addClass("active");

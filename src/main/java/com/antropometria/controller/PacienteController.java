@@ -7,11 +7,8 @@ package com.antropometria.controller;
 
 import br.com.caelum.vraptor.Controller;
 import br.com.caelum.vraptor.Get;
-import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Result;
-import br.com.caelum.vraptor.observer.download.Download;
-import br.com.caelum.vraptor.observer.download.FileDownload;
 import com.antropometria.dao.PacienteJpaController;
 import com.antropometria.dao.exceptions.RollbackFailureException;
 import com.antropometria.models.Paciente;
@@ -91,14 +88,12 @@ public class PacienteController {
         result.redirectTo(this).pacientes();
     }
 
-    public Download relatorio() throws JRException, FileNotFoundException {
+    public File relatorio() throws JRException, FileNotFoundException {
 
         JasperReport report = JasperCompileManager.compileReport("/home/anderson/NetBeansProjects/Antropometria/listaPacientes.jrxml");
         JasperPrint print = JasperFillManager.fillReport(report, null, new JRBeanCollectionDataSource(dao.findPacienteEntities()));
         JasperExportManager.exportReportToPdfFile(print, "/home/anderson/NetBeansProjects/Antropometria/listaPacientes.pdf");
-
-        File file = new File("/home/anderson/NetBeansProjects/Antropometria/listaPacientes.pdf");
         
-        return new FileDownload(file, "pdf", "teste");
+        return new File("/home/anderson/NetBeansProjects/Antropometria/listaPacientes.pdf");
     }
 }
